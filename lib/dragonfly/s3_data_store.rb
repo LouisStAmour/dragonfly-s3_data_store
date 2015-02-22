@@ -1,4 +1,4 @@
-require 'fog/aws'
+require 'fog/aws/storage'
 require 'dragonfly'
 
 Dragonfly::App.register_datastore(:s3){ Dragonfly::S3DataStore }
@@ -17,6 +17,7 @@ module Dragonfly
       'ap-southeast-1' => 's3-ap-southeast-1.amazonaws.com',
       'ap-southeast-2' => 's3-ap-southeast-2.amazonaws.com',
       'eu-west-1' => 's3-eu-west-1.amazonaws.com',
+      'eu-central-1' => 's3-eu-central-1.amazonaws.com',
       'sa-east-1' => 's3-sa-east-1.amazonaws.com'
     }
 
