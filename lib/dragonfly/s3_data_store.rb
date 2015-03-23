@@ -107,7 +107,7 @@ module Dragonfly
           :region => region,
           :use_iam_profile => use_iam_profile,
           :path_style => path_style
-        }.reject {|name, option| option.nil?})
+          }).reject {|name, option| option.nil?})
         storage.sync_clock
         storage
       end
