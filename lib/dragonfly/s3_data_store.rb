@@ -13,6 +13,7 @@ module Dragonfly
 
     REGIONS = {
       'us-east-1' => 's3.amazonaws.com',  #default
+      's3-external-1' => 's3-external-1.amazonaws.com',
       'us-west-1' => 's3-us-west-1.amazonaws.com',
       'us-west-2' => 's3-us-west-2.amazonaws.com',
       'ap-northeast-1' => 's3-ap-northeast-1.amazonaws.com',
