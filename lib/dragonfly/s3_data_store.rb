@@ -11,17 +11,12 @@ module Dragonfly
     # Exceptions
     class NotConfigured < RuntimeError; end
 
-    REGIONS = {
-      'us-east-1' => 's3.amazonaws.com',  #default
-      's3-external-1' => 's3-external-1.amazonaws.com',
-      'us-west-1' => 's3-us-west-1.amazonaws.com',
-      'us-west-2' => 's3-us-west-2.amazonaws.com',
-      'ap-northeast-1' => 's3-ap-northeast-1.amazonaws.com',
-      'ap-southeast-1' => 's3-ap-southeast-1.amazonaws.com',
-      'ap-southeast-2' => 's3-ap-southeast-2.amazonaws.com',
-      'eu-west-1' => 's3-eu-west-1.amazonaws.com',
-      'eu-central-1' => 's3-eu-central-1.amazonaws.com',
-      'sa-east-1' => 's3-sa-east-1.amazonaws.com'
+    REGIONS = %w{
+      us-east-1 external-1 
+      us-west-1 us-west-2 
+      ap-northeast-1 ap-southeast-1 ap-southeast-2
+      eu-west-1 eu-central-1
+      sa-east-1
     }
 
     SUBDOMAIN_PATTERN = /^[a-z0-9][a-z0-9.-]+[a-z0-9]$/
@@ -95,7 +90,7 @@ module Dragonfly
     end
 
     def domain
-      REGIONS[get_region]
+      REGIONS[get_region]+".amazonaws.com"
     end
 
     def storage
@@ -181,7 +176,7 @@ module Dragonfly
     end
 
     def valid_regions
-      REGIONS.keys
+      REGIONS
     end
 
     def rescuing_socket_errors(&block)
