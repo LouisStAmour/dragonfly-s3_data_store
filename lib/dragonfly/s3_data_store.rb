@@ -12,7 +12,7 @@ module Dragonfly
     class NotConfigured < RuntimeError; end
 
     REGIONS = %w{
-      us-east-1 external-1 
+      us-east-1 
       us-west-1 us-west-2 
       ap-northeast-1 ap-southeast-1 ap-southeast-2
       eu-west-1 eu-central-1
@@ -90,7 +90,7 @@ module Dragonfly
     end
 
     def domain
-      REGIONS[get_region]+".amazonaws.com"
+      (get_region == 'us-east-1' ? 'external-1' : REGIONS[get_region])+".amazonaws.com"
     end
 
     def storage
