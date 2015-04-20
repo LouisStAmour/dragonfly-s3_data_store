@@ -1,5 +1,4 @@
-require 'fog/service'
-require 'fog/aws/storage'
+require 'fog/aws'
 require 'dragonfly'
 require 'securerandom'
 require 'json'
